@@ -15,13 +15,18 @@ function onAddItemSubmit(e){
         alert('Please add an item');
         return;
     }
-
     if(isEditMode){
         const sitem = document.querySelector('.edit-mode');
         console.log(sitem);
         removeItem(sitem);
         isEditMode = false;
     }
+    if(checkIfItemExists(newItem)){
+        alert('Item exist in the list');
+        itemInput.value = '';
+        return;
+    }
+
     // Add item to DOM
     addItemToDOM(newItem);
     itemInput.value = '';
@@ -58,7 +63,10 @@ function addItemToStorage(item){
     itemsFromStorage.push(item);
     localStorage.setItem('items',JSON.stringify(itemsFromStorage));
 }
-
+function checkIfItemExists(item){
+    const itemsFromStorage = getItemsFromStorage();
+    return itemsFromStorage.includes(item)
+}
 function getItemsFromStorage(){
     let itemsFromStorage;
     if(localStorage.getItem('items') === null){
