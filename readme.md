@@ -1,5 +1,6 @@
 # Shopping List App
 https://av-shopping-list.netlify.app/
+
 JavaScript shopping list app.
 
 This project is a JavaScript-based shopping list app designed to help users manage their shopping needs efficiently. It leverages the power of the DOM (Document Object Model), event handling, state management, and local storage to provide a seamless and intuitive shopping list experience.
